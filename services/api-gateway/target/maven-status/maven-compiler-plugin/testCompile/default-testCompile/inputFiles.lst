@@ -1,0 +1,4 @@
+/Users/andriizachepilo/myproject/azure-webclinic/services/api-gateway/src/test/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayControllerTest.java
+/Users/andriizachepilo/myproject/azure-webclinic/services/api-gateway/src/test/java/org/springframework/samples/petclinic/api/ApiGatewayApplicationTests.java
+/Users/andriizachepilo/myproject/azure-webclinic/services/api-gateway/src/test/java/org/springframework/samples/petclinic/api/application/VisitsServiceClientIntegrationTest.java
+/Users/andriizachepilo/myproject/azure-webclinic/services/api-gateway/src/test/java/org/springframework/samples/petclinic/api/boundary/web/CircuitBreakerConfiguration.java

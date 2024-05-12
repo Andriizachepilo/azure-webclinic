@@ -1,0 +1,9 @@
+/Users/andriizachepilo/myproject/azure-webclinic/services/api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/Visits.java
+/Users/andriizachepilo/myproject/azure-webclinic/services/api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java
+/Users/andriizachepilo/myproject/azure-webclinic/services/api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/VisitDetails.java
+/Users/andriizachepilo/myproject/azure-webclinic/services/api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java
+/Users/andriizachepilo/myproject/azure-webclinic/services/api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/PetDetails.java
+/Users/andriizachepilo/myproject/azure-webclinic/services/api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetails.java
+/Users/andriizachepilo/myproject/azure-webclinic/services/api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/PetType.java
+/Users/andriizachepilo/myproject/azure-webclinic/services/api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java
+/Users/andriizachepilo/myproject/azure-webclinic/services/api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java

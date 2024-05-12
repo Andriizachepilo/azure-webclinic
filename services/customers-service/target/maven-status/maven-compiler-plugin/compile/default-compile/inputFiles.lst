@@ -1,0 +1,15 @@
+/Users/andriizachepilo/myproject/azure-webclinic/services/customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/PetType.java
+/Users/andriizachepilo/myproject/azure-webclinic/services/customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Pet.java
+/Users/andriizachepilo/myproject/azure-webclinic/services/customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/ResourceNotFoundException.java
+/Users/andriizachepilo/myproject/azure-webclinic/services/customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java
+/Users/andriizachepilo/myproject/azure-webclinic/services/customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/mapper/OwnerEntityMapper.java
+/Users/andriizachepilo/myproject/azure-webclinic/services/customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/PetRequest.java
+/Users/andriizachepilo/myproject/azure-webclinic/services/customers-service/src/main/java/org/springframework/samples/petclinic/customers/CustomersServiceApplication.java
+/Users/andriizachepilo/myproject/azure-webclinic/services/customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/PetRepository.java
+/Users/andriizachepilo/myproject/azure-webclinic/services/customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/PetDetails.java
+/Users/andriizachepilo/myproject/azure-webclinic/services/customers-service/src/main/java/org/springframework/samples/petclinic/customers/config/MetricConfig.java
+/Users/andriizachepilo/myproject/azure-webclinic/services/customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/OwnerRepository.java
+/Users/andriizachepilo/myproject/azure-webclinic/services/customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/PetResource.java
+/Users/andriizachepilo/myproject/azure-webclinic/services/customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerRequest.java
+/Users/andriizachepilo/myproject/azure-webclinic/services/customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/mapper/Mapper.java
+/Users/andriizachepilo/myproject/azure-webclinic/services/customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java
