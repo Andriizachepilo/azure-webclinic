@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: admin-server
-        image: public.ecr.aws/i5u0s7d7/publicrepo:11
+        image: andrey342/day4:admin-server3
         ports:
         - containerPort: 8081

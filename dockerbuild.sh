@@ -13,14 +13,16 @@ else
     echo "$tag" > "tag.txt"
 fi
 
-for x in $(find "$dir" -type d -mindepth 1 -maxdepth 1 -exec basename {} \; | sort); do
+if 
+
+for service in $(find "$dir" -type d -mindepth 1 -maxdepth 1 -exec basename {} \; | sort); do
     ((port++))
 
-    docker build -t "${x}:${tag}" \
-                 --build-arg JARPATH="${dir}${x}/target/${x}-3.2.4.jar" \
+    docker build -t "${service}:${tag}" \
+                 --build-arg JARPATH="${dir}${service}/target/${service}-3.2.4.jar" \
                  --build-arg PORT="${port}" .
 
-    docker tag "${x}:${tag}" "${docker}:${x}${tag}"
+   
 
 done
 
