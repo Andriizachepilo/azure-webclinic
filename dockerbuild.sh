@@ -13,23 +13,33 @@ else
     echo "$tag" > "tag.txt"
 fi
 
-if 
 
-for service in $(find "$dir" -type d -mindepth 1 -maxdepth 1 -exec basename {} \; | sort); do
+totalfolders=()
+
+
+while IFS= read -r folder; do
+    totalfolders+=($folder)
+done < <(find "$dir" -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort)
+
+
+if [[ ${#totalfolders[@]} -gt 0 ]]; then
+
+for service in "${totalfolders[@]}"; do
     ((port++))
 
     docker build -t "${service}:${tag}" \
                  --build-arg JARPATH="${dir}${service}/target/${service}-3.2.4.jar" \
                  --build-arg PORT="${port}" .
 
-   
-
 done
+fi
 
-echo "S"
+images=()
 
+while IFS= read -r img; do
+        images+=($img)
+done < <(docker images | awk -v tag="$tag" '$2 == tag {print $1}')
 
-
-
-
-
+if [[ ${#images[@]} -eq ${#totalfolders[@]} ]]; then 
+echo "123"
+fi

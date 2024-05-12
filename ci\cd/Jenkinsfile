@@ -1,0 +1,39 @@
+pipeline {
+
+    agent any
+
+    stages {
+
+        stage('Build and Test') {
+            steps {
+                script {
+                    sh "mvn clean package -DskipTests"
+                }
+                script {
+                    sh "mvn test"
+                }
+            }
+        }
+
+        stage('Build Tag Push Images') {
+            steps {
+                script {
+                    sh "bash dockerbuild.sh"
+                }
+            }
+            steps {
+                script {
+                    sh "bash dockerpush.sh"
+                }
+            }
+        }
+
+        stage('Deployment') {
+            steps {
+                script {
+                    sh "bash deploy.sh"
+                }
+            }
+        }
+    }
+}
