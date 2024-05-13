@@ -1,11 +1,15 @@
 pipeline {
     agent any
+
+environment {
+    MAVEN_HOME = tool 'Maven321'
+}
     stages {
         stage('Build and Test') {
             steps {
                 script {
-                    sh "mvn clean package -DskipTests"
-                    sh "mvn test"
+                    sh "${MAVEN_HOME}/bin/mvn clean package -DskipTests"
+                    sh "${MAVEN_HOME}/bin/mvn test"
                 }
             }
         }
