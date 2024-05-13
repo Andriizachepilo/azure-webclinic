@@ -42,4 +42,4 @@ done < <(docker images | awk -v tag="$tag" '$2 == tag {print $1}')
 
 if [[ ${#images[@]} -eq ${#totalfolders[@]} ]]; then 
 echo "123"
-fi
+

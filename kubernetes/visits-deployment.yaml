@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: visits-service
-        image: andrey342/day4:visits-service3
+        image: andrey342/day4:visits-service1
         ports:
         - containerPort: 8087
