@@ -5,20 +5,34 @@ environment {
     MAVEN_HOME = tool 'Maven321'
 }
       stages {
-        stage('Build Test') {
+        stage('Build') {
             steps {
                 dir('services') {
                 script {
                     sh "${MAVEN_HOME}/bin/mvn clean package -DskipTests"
+                }
+            }
+        }
+    }
+        stage('Test') {
+            steps {
+                dir('services') {
+                script {
                     sh "${MAVEN_HOME}/bin/mvn test" 
                 }
             }
         }
     }
-        stage('Build Tag Push Images') {
+        stage('Build Images') {
             steps {
                 script {
                     sh "bash dockerbuild.sh"
+                }
+            }
+        }
+        stage('Tag and Push Images') {
+            steps {
+                script {
                     sh "bash dockerpush.sh"
                 }
             }
