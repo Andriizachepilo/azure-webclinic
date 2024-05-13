@@ -4,15 +4,16 @@ pipeline {
 environment {
     MAVEN_HOME = tool 'Maven321'
 }
-    stages {
+      stages {
         stage('Build Test') {
             steps {
+                dir('pipli') {
                 script {
                     sh "${MAVEN_HOME}/bin/mvn clean package -DskipTests"
                     sh "${MAVEN_HOME}/bin/mvn test" 
                 }
             }
-        }
+        }}
         stage('Build Tag Push Images') {
             steps {
                 script {
