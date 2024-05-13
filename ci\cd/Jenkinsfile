@@ -1,33 +1,28 @@
 pipeline {
-
     agent any
 
-    stages {
-
-        stage('Build and Test') {
+environment {
+    MAVEN_HOME = tool 'Maven321'
+}
+      stages {
+        stage('Build Test') {
             steps {
+                dir('services') {
                 script {
-                    sh "mvn clean package -DskipTests"
-                }
-                script {
-                    sh "mvn test"
+                    sh "${MAVEN_HOME}/bin/mvn clean package -DskipTests"
+                    sh "${MAVEN_HOME}/bin/mvn test" 
                 }
             }
         }
-
+    }
         stage('Build Tag Push Images') {
             steps {
                 script {
                     sh "bash dockerbuild.sh"
-                }
-            }
-            steps {
-                script {
                     sh "bash dockerpush.sh"
                 }
             }
         }
-
         stage('Deployment') {
             steps {
                 script {
