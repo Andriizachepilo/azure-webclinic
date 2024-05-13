@@ -2,23 +2,23 @@
 
 cd kubernetes
 
-kubectl deploy -f config-deployment.yaml 
-kubectl deploy -f config-service.yaml 
+kubectl apply -f config-deployment.yaml 
+kubectl apply -f config-service.yaml 
 
-kubectl deploy -f discovery-deployment.yaml
-kubectl deploy -f descovery-serivce.yaml
+kubectl apply -f discovery-deployment.yaml
+kubectl apply -f discovery-service.yaml
 
-kubectl deploy -f admin-deployment.yaml 
-kubectl deploy -f admin-service.yaml 
+kubectl apply -f admin-deployment.yaml 
+kubectl apply -f admin-service.yaml 
 
-kubectl deploy -f api-gateway-deployment.yaml
-kubectl deploy -f api-gateway-service.yaml 
+kubectl apply -f api-gateway-deployment.yaml
+kubectl apply -f api-gateway-service.yaml 
 
-kubectl deploy -f vets-deployment.yaml
-kubectl deploy -f vets-service.yaml
+kubectl apply -f vets-deployment.yaml
+kubectl apply -f vets-service.yaml
 
-kubectl deploy -f visits-deployment.yaml
-kubectl deploy -f visits-service.yaml
+kubectl apply -f visits-deployment.yaml
+kubectl apply -f visits-service.yaml
 
-kubectl deploy -f customers-deployment.yaml
-kubectl deploy -f customers-service.yaml
+kubectl apply -f customers-deployment.yaml
+kubectl apply -f customers-service.yaml

@@ -16,11 +16,9 @@ fi
 
 totalfolders=()
 
-
 while IFS= read -r folder; do
     totalfolders+=($folder)
 done < <(find "$dir" -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort)
-
 
 if [[ ${#totalfolders[@]} -gt 0 ]]; then
 
