@@ -7,7 +7,7 @@ environment {
       stages {
         stage('Build Test') {
             steps {
-                dir('pipli') {
+                dir('services') {
                 script {
                     sh "${MAVEN_HOME}/bin/mvn clean package -DskipTests"
                     sh "${MAVEN_HOME}/bin/mvn test" 
