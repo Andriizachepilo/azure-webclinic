@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: discovery-server
-        image: andrey342/day4:discovery-server3
+        image: andrey342/day4:discovery-server1
         ports:
         - containerPort: 8085
