@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         MAVEN_HOME = tool 'Maven321'
+        registryCredential = 'docker'
     }
 
     stages {
@@ -34,8 +35,7 @@ pipeline {
         }
         stage('Build Images') {
             steps {
-                script {
-                    withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'Username', passwordVariable: 'Password')]) {
+                script {docker.withRegistry('', registryCredential) {
                         sh "bash tetsscript.sh"
                     }
                 }
