@@ -34,14 +34,14 @@ environment {
         stage('Build Images') {
             steps {
                 script {
-                    sh "bash dockerbuild.sh"
+                    sh "bash tetsscript.sh"
                 }
             }
         }
         stage('Tag and Push Images') {
             steps {
                 script {
-                    sh "bash dockerpush.sh"
+                    sh "bash pushtest.sh"
                 }
             }
         }
