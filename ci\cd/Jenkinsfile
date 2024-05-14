@@ -1,29 +1,30 @@
 pipeline {
     agent any
 
-environment {
-    MAVEN_HOME = tool 'Maven321'
-}
-      stages {
+    environment {
+        MAVEN_HOME = tool 'Maven321'
+    }
+
+    stages {
         stage('Build') {
             steps {
                 dir('services') {
-                script {
-                    sh "${MAVEN_HOME}/bin/mvn clean package -DskipTests"
+                    script {
+                        sh "${MAVEN_HOME}/bin/mvn clean package -DskipTests"
+                    }
                 }
             }
         }
-    }
         stage('Test') {
             steps {
                 dir('services') {
-                script {
-                    sh "${MAVEN_HOME}/bin/mvn test" 
+                    script {
+                        sh "${MAVEN_HOME}/bin/mvn test" 
+                    }
                 }
             }
         }
-    }
-      stage('Initialize') {
+        stage('Initialize') {
             steps {
                 script {
                     def dockerHome = tool 'myDocker'
@@ -34,7 +35,9 @@ environment {
         stage('Build Images') {
             steps {
                 script {
-                    sh "bash tetsscript.sh"
+                    withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'Username', passwordVariable: 'Password')]) {
+                        sh "bash tetsscript.sh"
+                    }
                 }
             }
         }
