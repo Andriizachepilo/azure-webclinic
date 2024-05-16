@@ -16,4 +16,4 @@ spec:
       - name: config-server
         image: andrey342/day4:config-server1
         ports:
-        - containerPort: 8083 
+        - containerPort: 8888

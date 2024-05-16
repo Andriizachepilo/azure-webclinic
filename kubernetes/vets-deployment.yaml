@@ -16,4 +16,4 @@ spec:
       - name: vets-service
         image: andrey342/day4:vets-service1
         ports:
-        - containerPort: 8086
+        - containerPort: 8807

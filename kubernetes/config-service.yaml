@@ -7,6 +7,6 @@ spec:
     app: config-server
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 8083
+      port: 8888
+      targetPort: 8888
   type: ClusterIP

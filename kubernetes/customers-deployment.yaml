@@ -16,4 +16,4 @@ spec:
       - name: customer-service
         image: andrey342/day4:customers-service1
         ports:
-        - containerPort: 8084
+        - containerPort: 8806

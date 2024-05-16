@@ -1,7 +1,7 @@
 #!/bin/bash
 
 dir="services/"
-port=8081
+ports=(9090 8080 8888 8806 8761 8807 8808)
 docker="andrey342/day4"
 
 if [[ ! -f "tag.txt" ]]; then
@@ -23,7 +23,6 @@ done < <(find "$dir" -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort
 if [[ ${#totalfolders[@]} -gt 0 ]]; then
 
 for service in "${totalfolders[@]}"; do
-    ((port++))
 
     docker build -t "${service}:${tag}" \
                  --build-arg JARPATH="${dir}${service}/target/${service}-3.2.4.jar" \

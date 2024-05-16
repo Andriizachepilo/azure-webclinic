@@ -7,6 +7,6 @@ spec:
     app: visits-service
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 8087
+      port: 8808
+      targetPort: 8808
   type: ClusterIP

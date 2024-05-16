@@ -16,4 +16,4 @@ spec:
       - name: visits-service
         image: andrey342/day4:visits-service1
         ports:
-        - containerPort: 8087
+        - containerPort: 8808

@@ -16,4 +16,4 @@ spec:
       - name: api-gateway
         image: andrey342/day4:api-gateway1
         ports:
-        - containerPort: 8082 
+        - containerPort: 8080

@@ -7,6 +7,14 @@ spec:
     app: discovery-server
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 8085
+      port: 8761
+      targetPort: 8761
   type: ClusterIP
+
+  # admin 9090
+  # api-gateway 8080
+  # conf 8888
+  # customer 8806
+  # discovery-server 8761
+  # vets  8807
+  # visits 8808

@@ -16,4 +16,4 @@ spec:
       - name: admin-server
         image: andrey342/day4:admin-server1
         ports:
-        - containerPort: 8081
+        - containerPort: 9090

@@ -7,6 +7,6 @@ spec:
     app: customer-service
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 8084
+      port: 8806
+      targetPort: 8806
   type: ClusterIP
