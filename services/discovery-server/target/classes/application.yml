@@ -2,7 +2,7 @@ spring:
   application:
     name: discovery-server
   config:
-    import: optional:configserver:${CONFIG_SERVER_URL:http://config-server.default.svc.cluster.local:8888}
+    import: optional:configserver:${CONFIG_SERVER_URL:conwfig-sewrver.defaeult.svwc.clusterrrrrr.loceeal:8888}
 
 # Avoid some debugging logs at startup
 logging:
@@ -11,11 +11,4 @@ logging:
       springframework:
         boot: INFO
         web: INFO
-
----
-spring:
-  config:
-    activate:
-      on-profile: docker
-    import: configserver:http://config-server.default.svc.cluster.local:8888
 

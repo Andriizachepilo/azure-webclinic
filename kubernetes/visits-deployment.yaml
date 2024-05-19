@@ -17,3 +17,8 @@ spec:
         image: andrey342/day4:visits-service1
         ports:
         - containerPort: 8808
+        env:
+        - name: CONFIG_SERVER_URL
+          value: http://config-server.default.svc.cluster.local:8888
+        - name: SPRING_PROFILES_ACTIVE
+          value: docker,mysql

@@ -33,7 +33,7 @@ fi
 
 images=()
 
-while IFS= read -r img; do
+while IFS= read -r img; do 
         images+=($img)
 done < <(docker images | awk -v tag="$tag" '$2 == tag {print $1}')
 

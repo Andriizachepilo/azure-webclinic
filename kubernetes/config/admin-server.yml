@@ -1,12 +1,13 @@
 server:
-  port: 8081
+  port: 9090
 
 ---
 spring:
   config:
     activate:
-      on-profile: docker
+      on-profile: default
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://discovery-server:8761/eureka/
+      defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE:http://discovery-server.default.svc.cluster.local:8761/eureka/}
+

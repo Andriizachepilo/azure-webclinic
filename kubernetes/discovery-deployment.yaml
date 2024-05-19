@@ -14,6 +14,13 @@ spec:
     spec:
       containers:
       - name: discovery-server
-        image: andrey342/day4:discovery-server1
+        image: andrey342/day4:discovery-server1 
         ports:
         - containerPort: 8761
+        env:
+        - name: CONFIG_SERVER_URL
+          value: http://config-server.default.svc.cluster.local:8888
+
+        
+
+

@@ -25,11 +25,3 @@ spring:
           filters:
             - StripPrefix=2
 
-
-
----
-spring:
-  config:
-    activate:
-      on-profile: docker
-    import: configserver:http://config-server.default.svc.cluster.local:8888

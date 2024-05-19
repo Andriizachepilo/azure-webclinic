@@ -5,9 +5,4 @@ spring:
     import: optional:configserver:${CONFIG_SERVER_URL:http://config-server.default.svc.cluster.local:8888}
 
 
----
-spring:
-  config:
-    activate:
-      on-profile: docker
-    import: configserver:http://config-server.default.svc.cluster.local:8888
+

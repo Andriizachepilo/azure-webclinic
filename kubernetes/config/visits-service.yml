@@ -15,7 +15,7 @@ spring:
   zipkin:
     baseUrl: http://tracing-server:9411
 server:
-  port: 8087
+  port: 8808
 eureka:
   client:
     serviceUrl:

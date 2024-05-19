@@ -1,9 +1,9 @@
 ﻿server:
-  port: 8085
+  port: 8761
 
 eureka:
   instance:
-    hostname: localhost
+    hostname: config-server.default.svc.cluster.local
   # standalone mode
   client:
     registerWithEureka: false
