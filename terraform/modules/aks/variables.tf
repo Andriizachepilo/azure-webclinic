@@ -3,10 +3,6 @@ variable "create_cluster" {
   type        = bool
 }
 
-variable "name" {
-  description = "The name of the AKS cluster"
-}
-
 variable "location" {
   description = "The location of the AKS cluster"
 }
@@ -43,9 +39,7 @@ variable "http_application_routing_enabled" {
   type        = bool
 }
 
-variable "node_pool_name" {
-  description = "The name of the default node pool for the AKS cluster"
-}
+
 
 variable "node_pool_vm_size" {
   description = "The VM size for the default node pool"
@@ -106,4 +100,14 @@ variable "network_plugin" {
 
 variable "network_policy" {
   description = "The network policy to use for the AKS cluster"
+}
+
+variable "dns_prefix" {
+  type = string
+  default = ""
+}
+
+variable "dns_prefix_private_cluster" {
+  type = string
+  default = ""
 }

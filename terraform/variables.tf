@@ -14,9 +14,6 @@ variable "address_space" {
   type = any
 }
 
-variable "dns_servers" {
-  type = list(string)
-}
 
 variable "private_address_prefix" {
   type = list(string)
@@ -26,13 +23,6 @@ variable "public_address_prefix" {
   type = list(string)
 }
 
-variable "private_subnet_name" {
-  type = string
-}
-
-variable "public_subnet_name" {
-  type = string
-}
 
 variable "create_cluster" {
   description = "Specifies whether to create the AKS cluster"
@@ -72,9 +62,6 @@ variable "http_application_routing_enabled" {
   type        = bool
 }
 
-variable "node_pool_name" {
-  description = "The name of the default node pool for the AKS cluster"
-}
 
 variable "node_pool_vm_size" {
   description = "The VM size for the default node pool"
@@ -128,4 +115,102 @@ variable "network_plugin" {
 
 variable "network_policy" {
   description = "The network policy to use for the AKS cluster"
+}
+
+
+
+variable "db_engine_version" {
+  description = "The version of the MySQL server."
+  type        = string
+  default     = "8.0"
+}
+
+variable "db_server_sku" {
+  description = "The SKU of the MySQL server."
+  type        = string
+}
+
+
+variable "db_zone" {
+  description = "The availability zone where the MySQL server will be created."
+  type        = string
+}
+
+
+variable "db_iops" {
+  description = "The number of IOPS for the MySQL server storage."
+  type        = number
+}
+
+variable "db_allocated_storage" {
+  description = "The size of the storage for the MySQL server in GB."
+  type        = number
+}
+
+
+variable "charset" {
+  description = "The character set for the MySQL database."
+  type        = string
+  default     = "utf8"
+}
+
+variable "collation" {
+  description = "The collation for the MySQL database."
+  type        = string
+  default     = "utf8_general_ci"
+}
+
+variable "random_login_length" {
+  type = number
+}
+
+variable "random_password_length" {
+  type = number
+}
+
+variable "login_secret_name" {
+  type = string
+}
+
+variable "password_secret_name" {
+  type = string
+}
+
+variable "enabled_for_deployment" {
+  description = "Whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault."
+  type        = bool
+  default     = false
+}
+
+variable "enabled_for_disk_encryption" {
+  description = "Whether Azure Disk Encryption is permitted to retrieve secrets from the key vault and unwrap keys."
+  type        = bool
+  default     = false
+}
+
+variable "enabled_for_template_deployment" {
+  description = "Whether Azure Resource Manager is permitted to retrieve secrets from the key vault when deploying resources."
+  type        = bool
+  default     = false
+}
+
+variable "public_network_access_enabled" {
+  description = "Whether public network access is enabled for the key vault."
+  type        = bool
+  default     = true
+}
+
+
+variable "key_vault_sku_name" {
+  type = string
+}
+
+variable "dns_prefix" {
+  type = string
+  default = ""
+}
+
+variable "dns_prefix_private_cluster" {
+  type = string
+  default = ""
 }

@@ -1,18 +1,20 @@
 resource "azurerm_kubernetes_cluster" "aks_cluster" {
-  count = var.create_cluster ? 1:0
+  count = var.create_cluster ? 1 : 0
 
-  name                             = var.name
+  name                             = "ask-${var.resource_group_name}"
   location                         = var.location
   resource_group_name              = var.resource_group_name
   kubernetes_version               = var.kubernetes_version
   private_cluster_enabled          = var.private_cluster_enabled
   sku_tier                         = var.sku_tier
+  dns_prefix                       = var.private_cluster_enabled ? "" : var.dns_prefix
+  dns_prefix_private_cluster       = var.private_cluster_enabled ? var.dns_prefix_private_cluster : ""
   image_cleaner_enabled            = var.image_cleaner_enabled
   azure_policy_enabled             = var.azure_policy_enabled
   http_application_routing_enabled = var.http_application_routing_enabled
 
   default_node_pool {
-    name                   = var.node_pool_name
+    name                   = "node-pool-${var.resource_group_name}"
     vm_size                = var.node_pool_vm_size
     vnet_subnet_id         = var.node_pool_vnet_subnet_id
     pod_subnet_id          = var.node_pool_pod_subnet_id
@@ -26,9 +28,13 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     min_count              = var.node_pool_min_count
     node_count             = var.node_pool_node_count
   }
-  
- network_profile {
-    network_plugin = var.network_plugin 
+
+  network_profile {
+    network_plugin = var.network_plugin
     network_policy = var.network_plugin == "Azure" ? var.network_plugin : var.network_policy
+  }
+
+  identity {
+    type = "SystemAssigned"
   }
 }
