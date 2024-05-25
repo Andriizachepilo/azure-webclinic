@@ -1,7 +1,7 @@
 data "azurerm_client_config" "current" {}
 
 resource "azurerm_key_vault" "main" {
-  name                = "db-keyvault"
+  name                = "db-keyvault4231233"
   location            = var.resource_group_location
   resource_group_name = var.resource_group_name
   tenant_id           = data.azurerm_client_config.current.tenant_id
@@ -10,16 +10,31 @@ resource "azurerm_key_vault" "main" {
   enabled_for_deployment          = var.enabled_for_deployment
   enabled_for_disk_encryption     = var.enabled_for_disk_encryption
   enabled_for_template_deployment = var.enabled_for_template_deployment
-  public_network_access_enabled   = var.public_network_access_enabled
+
+
+  access_policy {
+    tenant_id = data.azurerm_client_config.current.tenant_id
+    object_id = data.azurerm_client_config.current.object_id
+
+    secret_permissions = [
+      "Get",
+      "List",
+      "Set",
+      "Delete",
+      "Purge",
+      "Recover",
+      "Restore",
+    ]
+  }
 }
 
 
 resource "random_string" "login" {
-  length      = var.random_login_length
-  min_upper   = 1
-  min_lower   = 1
-  min_numeric = 1
-  min_special = 1
+  length  = var.random_login_length
+  special = false
+  upper   = true
+  lower   = true
+  numeric = true
 }
 
 resource "azurerm_key_vault_secret" "mysqllogin" {
@@ -53,17 +68,15 @@ data "azurerm_key_vault_secret" "db_password" {
 }
 
 resource "azurerm_mysql_flexible_server" "mysql" {
-  name                = "mysql-server"
+  name                = "mysql-server3213123"
   location            = var.resource_group_location
   resource_group_name = var.resource_group_name
   version             = var.db_engine_version #8.0
   sku_name            = var.db_server_sku
-
+ 
   administrator_login    = data.azurerm_key_vault_secret.db_login.value
   administrator_password = data.azurerm_key_vault_secret.db_password.value
-
-  zone                = var.db_zone
-  delegated_subnet_id = var.db_delegated_subnet_id
+  delegated_subnet_id    = var.db_delegated_subnet_id
 
   storage {
     iops    = var.db_iops

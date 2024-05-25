@@ -11,18 +11,29 @@ variable "vn_name" {
 }
 
 variable "address_space" {
-  type = any
-}
-
-
-variable "private_address_prefix" {
   type = list(string)
 }
 
-variable "public_address_prefix" {
+
+variable "aks_address_prefix" {
   type = list(string)
 }
 
+variable "mysql_address_prefix" {
+  type = list(string)
+}
+
+variable "acr_sku" {
+  type = string
+}
+
+variable "admin_enabled" {
+  type = bool
+}
+
+variable "acr_public_network_access_enabled" {
+  type = bool
+}
 
 variable "create_cluster" {
   description = "Specifies whether to create the AKS cluster"
@@ -47,10 +58,7 @@ variable "sku_tier" {
   description = "The SKU tier for the AKS cluster"
 }
 
-variable "image_cleaner_enabled" {
-  description = "Specifies whether the image cleaner is enabled for the AKS cluster"
-  type        = bool
-}
+
 
 variable "azure_policy_enabled" {
   description = "Specifies whether Azure Policy is enabled for the AKS cluster"
@@ -65,11 +73,6 @@ variable "http_application_routing_enabled" {
 
 variable "node_pool_vm_size" {
   description = "The VM size for the default node pool"
-}
-
-variable "node_pool_availability_zones" {
-  description = "The availability zones for the nodes in the default node pool"
-  type        = list(string)
 }
 
 
@@ -88,10 +91,6 @@ variable "node_pool_enable_node_public_ip" {
   type        = bool
 }
 
-variable "node_pool_gpu_instance" {
-  description = "Specifies whether GPU instances are enabled for the default node pool"
-  type        = string
-}
 
 variable "node_pool_max_pods" {
   description = "The maximum number of pods per node in the default node pool"
@@ -127,12 +126,6 @@ variable "db_engine_version" {
 
 variable "db_server_sku" {
   description = "The SKU of the MySQL server."
-  type        = string
-}
-
-
-variable "db_zone" {
-  description = "The availability zone where the MySQL server will be created."
   type        = string
 }
 
@@ -194,13 +187,6 @@ variable "enabled_for_template_deployment" {
   default     = false
 }
 
-variable "public_network_access_enabled" {
-  description = "Whether public network access is enabled for the key vault."
-  type        = bool
-  default     = true
-}
-
-
 variable "key_vault_sku_name" {
   type = string
 }
@@ -213,4 +199,8 @@ variable "dns_prefix" {
 variable "dns_prefix_private_cluster" {
   type = string
   default = ""
+}
+
+variable "agent_address_prefix" {
+  type = list(string)
 }

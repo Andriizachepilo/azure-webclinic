@@ -24,10 +24,6 @@ variable "sku_tier" {
   description = "The SKU tier for the AKS cluster"
 }
 
-variable "image_cleaner_enabled" {
-  description = "Specifies whether the image cleaner is enabled for the AKS cluster"
-  type        = bool
-}
 
 variable "azure_policy_enabled" {
   description = "Specifies whether Azure Policy is enabled for the AKS cluster"
@@ -46,17 +42,13 @@ variable "node_pool_vm_size" {
 }
 
 variable "node_pool_vnet_subnet_id" {
-  description = "The ID of the subnet within the VNet where the AKS nodes will be deployed"
+  type = string
 }
 
 variable "node_pool_pod_subnet_id" {
-  description = "The ID of the subnet for the pods within the AKS cluster"
+  type = string
 }
 
-variable "node_pool_availability_zones" {
-  description = "The availability zones for the nodes in the default node pool"
-  type        = list(string)
-}
 
 variable "node_pool_enable_auto_scaling" {
   description = "Specifies whether auto scaling is enabled for the default node pool"
@@ -71,11 +63,6 @@ variable "node_pool_enable_host_encryption" {
 variable "node_pool_enable_node_public_ip" {
   description = "Specifies whether nodes in the default node pool have public IPs"
   type        = bool
-}
-
-variable "node_pool_gpu_instance" {
-  description = "Specifies whether GPU instances are enabled for the default node pool"
-  type        = string
 }
 
 variable "node_pool_max_pods" {
@@ -104,10 +91,10 @@ variable "network_policy" {
 
 variable "dns_prefix" {
   type = string
-  default = ""
+  default = null
 }
 
 variable "dns_prefix_private_cluster" {
   type = string
-  default = ""
+  default = null
 }

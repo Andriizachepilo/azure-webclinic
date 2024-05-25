@@ -1,12 +1,12 @@
 variable "address_space" {
-  type = any
-}
-
-variable "private_address_prefix" {
   type = list(string)
 }
 
-variable "public_address_prefix" {
+variable "aks_address_prefix" {
+  type = list(string)
+}
+
+variable "mysql_address_prefix" {
   type = list(string)
 }
 
@@ -28,4 +28,8 @@ variable "resource_group_location" {
 
 variable "create_cluster" {
   type = bool
+}
+
+variable "agent_address_prefix" {
+  type = list(string)
 }
