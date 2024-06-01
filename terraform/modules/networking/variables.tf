@@ -2,7 +2,7 @@ variable "address_space" {
   type = list(string)
 }
 
-variable "aks_address_prefix" {
+variable "pod_address_prefix" {
   type = list(string)
 }
 
@@ -10,7 +10,7 @@ variable "mysql_address_prefix" {
   type = list(string)
 }
 
-variable "aks_security_group" {
+variable "pod_security_group" {
   type = string
 }
 
@@ -31,5 +31,13 @@ variable "create_cluster" {
 }
 
 variable "agent_address_prefix" {
+  type = list(string)
+}
+
+variable "api_gateway_security_group" {
+  type = string
+}
+
+variable "api_address_prefix" {
   type = list(string)
 }

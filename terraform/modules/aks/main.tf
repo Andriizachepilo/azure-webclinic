@@ -16,7 +16,7 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     for_each = var.node_pool_enable_auto_scaling ? [1] : []
 
     content {
-      name                   = "defaultnode"
+      name                   = "intrnl${var.location}"
       vm_size                = var.node_pool_vm_size
       vnet_subnet_id         = var.node_pool_vnet_subnet_id
       pod_subnet_id          = var.node_pool_pod_subnet_id
@@ -33,11 +33,29 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
   network_profile {
     network_plugin = var.network_plugin
     network_policy = var.network_plugin == "azure" ? var.network_plugin : var.network_policy
-    service_cidr   = "10.1.0.0/24"
-    dns_service_ip = "10.1.0.10"
+    service_cidr   = var.service_cidr
+    dns_service_ip = var.dns_service_ip
   }
 
   identity {
     type = "SystemAssigned"
   }
+}
+
+
+resource "azurerm_kubernetes_cluster_node_pool" "api_gateway" {
+  count = var.create_cluster ? 1 : 0
+
+  name                  = "public${var.location}"
+  kubernetes_cluster_id = azurerm_kubernetes_cluster.aks_cluster[0].id
+  vm_size               = var.node_pool_vm_size
+  node_count            = var.node_pool_node_count
+  pod_subnet_id         = var.api_gateway_subnet
+  vnet_subnet_id        = var.node_pool_vnet_subnet_id
+  enable_node_public_ip = var.api_gateway_public_ip
+  enable_auto_scaling   = var.node_pool_enable_auto_scaling
+  max_pods              = var.node_pool_max_pods
+  max_count             = var.node_pool_max_count
+  min_count             = var.node_pool_min_count
+
 }

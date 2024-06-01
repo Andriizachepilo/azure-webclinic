@@ -31,7 +31,20 @@ variable "admin_enabled" {
   type = bool
 }
 
+
+variable "service_cidr" {
+  type = string
+}
+
+variable "dns_service_ip" {
+  type = string
+}
+
 variable "acr_public_network_access_enabled" {
+  type = bool
+}
+
+variable "api_gateway_public_ip" {
   type = bool
 }
 
@@ -202,5 +215,9 @@ variable "dns_prefix_private_cluster" {
 }
 
 variable "agent_address_prefix" {
+  type = list(string)
+}
+
+variable "api_address_prefix" {
   type = list(string)
 }

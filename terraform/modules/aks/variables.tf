@@ -35,6 +35,15 @@ variable "http_application_routing_enabled" {
   type        = bool
 }
 
+variable "service_cidr" {
+  type = string
+}
+
+variable "dns_service_ip" {
+  type = string
+}
+
+
 
 
 variable "node_pool_vm_size" {
@@ -90,11 +99,19 @@ variable "network_policy" {
 }
 
 variable "dns_prefix" {
-  type = string
+  type    = string
   default = null
 }
 
 variable "dns_prefix_private_cluster" {
-  type = string
+  type    = string
   default = null
+}
+
+variable "api_gateway_subnet" {
+  type = string
+}
+
+variable "api_gateway_public_ip" {
+  type = bool
 }

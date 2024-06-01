@@ -30,24 +30,64 @@ resource "azurerm_network_security_group" "mysql" {
 
 
 
-
-
-
-resource "azurerm_network_security_group" "aks" {
+resource "azurerm_network_security_group" "node" {
   name                = "aks-security-${var.resource_group_location}"
   location            = var.resource_group_location
   resource_group_name = var.resource_group_name
 
   security_rule {
-    name                       = "aks"
+    name                       = "aks-ingress"
     priority                   = 100
     direction                  = "Inbound"
     access                     = "Allow"
     protocol                   = "Tcp"
     source_port_range          = "*" #if its a private node - accessible for my node where is api gateway located, ingress on port 80 and all egress only from api gateway node and database?
+    destination_port_range     = "8080"
+    source_address_prefix      = "10.0.8.0/24"
+    destination_address_prefix = "*"
+}
+
+  security_rule {
+    name                       = "aks-egress"
+    priority                   = 100
+    direction                  = "Outbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*" 
     destination_port_range     = "*"
     source_address_prefix      = "*"
     destination_address_prefix = "*"
-
-  }
+ }
 }
+
+resource "azurerm_network_security_group" "api_gateway" {
+  name                = "api-security-${var.resource_group_location}"
+  location            = var.resource_group_location
+  resource_group_name = var.resource_group_name
+
+  security_rule {
+    name                       = "api-ingress"
+    priority                   = 100
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*" 
+    destination_port_range     = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+}
+
+  security_rule {
+    name                       = "api-egress"
+    priority                   = 100
+    direction                  = "Outbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*" 
+    destination_port_range     = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+ }
+}
+
+

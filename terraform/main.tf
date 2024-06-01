@@ -13,13 +13,15 @@ module "netwroking" {
 
   address_space = var.address_space
 
-  aks_address_prefix = var.aks_address_prefix
-  aks_security_group = module.security-group.test123-sg
-
-  mysql_address_prefix = var.mysql_address_prefix
-  db_security_group    = module.security-group.test123-sg
+  api_address_prefix   = var.api_address_prefix
+  pod_address_prefix   = var.aks_address_prefix
   agent_address_prefix = var.agent_address_prefix
+  mysql_address_prefix = var.mysql_address_prefix
 
+  db_security_group = module.security-group.test123-sg
+  pod_security_group         = module.security-group.test123-sg
+  api_gateway_security_group = module.security-group.test123-sg
+  
   create_cluster = var.create_cluster
 }
 
@@ -77,8 +79,9 @@ module "kubernetes" {
 
   create_cluster = var.create_cluster
 
-  location                         = module.resource-group.location
-  resource_group_name              = module.resource-group.name
+  location            = module.resource-group.location
+  resource_group_name = module.resource-group.name
+
   kubernetes_version               = var.kubernetes_version
   private_cluster_enabled          = var.private_cluster_enabled
   sku_tier                         = var.sku_tier
@@ -87,8 +90,10 @@ module "kubernetes" {
   azure_policy_enabled             = var.azure_policy_enabled
   http_application_routing_enabled = var.http_application_routing_enabled
 
+  dns_service_ip                   = var.dns_service_ip
+  service_cidr                     = var.service_cidr
+  node_pool_vnet_subnet_id         = module.netwroking.pod_subnet
   node_pool_vm_size                = var.node_pool_vm_size
-  node_pool_vnet_subnet_id         = module.netwroking.aks_subnet
   node_pool_pod_subnet_id          = module.netwroking.agent_subnet
   node_pool_enable_auto_scaling    = var.node_pool_enable_auto_scaling
   node_pool_enable_host_encryption = var.node_pool_enable_host_encryption
@@ -98,9 +103,11 @@ module "kubernetes" {
   node_pool_min_count              = var.node_pool_min_count
   node_pool_node_count             = var.node_pool_node_count
 
+  api_gateway_public_ip = var.api_gateway_public_ip
+  api_gateway_subnet    = module.netwroking.api_gateway_subnet
+
   network_plugin = var.network_plugin
   network_policy = var.network_policy
-
 }
 
 

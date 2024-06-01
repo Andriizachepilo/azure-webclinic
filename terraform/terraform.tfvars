@@ -10,7 +10,9 @@ mysql_address_prefix = ["10.0.1.0/24"]
 
 aks_address_prefix = ["10.0.9.0/24"]
 
-agent_address_prefix = ["10.1.1.0/24"]
+agent_address_prefix = ["10.0.5.0/24"]
+api_address_prefix   = ["10.0.8.0/24"]
+
 
 #database
 db_engine_version    = "8.0.21"
@@ -33,8 +35,8 @@ random_password_length = 9
 password_secret_name   = "secretpass"
 
 #acr
-admin_enabled = false
-acr_sku = "Basic"
+admin_enabled                     = false
+acr_sku                           = "Basic"
 acr_public_network_access_enabled = true
 
 #cluster
@@ -60,3 +62,6 @@ node_pool_node_count             = 1
 
 network_plugin = "azure"
 network_policy = ""
+service_cidr   = "10.0.2.0/24"
+dns_service_ip = "10.0.2.10"
+api_gateway_public_ip = true

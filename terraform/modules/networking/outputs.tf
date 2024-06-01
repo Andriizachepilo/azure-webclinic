@@ -1,5 +1,5 @@
-output "aks_subnet" {
-  value = azurerm_subnet.aks_subnet.id
+output "pod_subnet" {
+  value = azurerm_subnet.pod_subnet.id
 }
 
 output "mysql_subnet" {
@@ -8,4 +8,8 @@ output "mysql_subnet" {
 
 output "agent_subnet" {
   value = azurerm_subnet.agent_pool_subnet.id
+}
+
+output "api_gateway_subnet" {
+  value = azurerm_subnet.api_gateway_subnet.id
 }
