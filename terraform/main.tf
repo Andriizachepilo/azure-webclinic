@@ -18,10 +18,10 @@ module "netwroking" {
   agent_address_prefix = var.agent_address_prefix
   mysql_address_prefix = var.mysql_address_prefix
 
-  db_security_group = module.security-group.test123-sg
-  pod_security_group         = module.security-group.test123-sg
-  api_gateway_security_group = module.security-group.test123-sg
-  
+  db_security_group          = module.security-group.mysql
+  pod_security_group         = module.security-group.node
+  api_gateway_security_group = module.security-group.api_gateway
+
   create_cluster = var.create_cluster
 }
 

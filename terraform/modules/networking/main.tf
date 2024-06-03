@@ -5,7 +5,7 @@ resource "azurerm_virtual_network" "webclinic" {
   address_space       = var.address_space
 }
 
-resource "azurerm_subnet" "db_subnet" {
+resource "azurerm_subnet" "mysql_subnet" {
   name                 = "db-subnet-${var.resource_group_location}"
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.webclinic.name
@@ -22,13 +22,13 @@ resource "azurerm_subnet" "db_subnet" {
 }
 
 resource "azurerm_subnet_network_security_group_association" "mysql_sg" {
-  subnet_id                 = azurerm_subnet.db_subnet.id
+  subnet_id                 = azurerm_subnet.mysql_subnet.id
   network_security_group_id = var.db_security_group
 }
 
 resource "azurerm_subnet_nat_gateway_association" "subnet_mysql_nat_association" {
   nat_gateway_id = azurerm_nat_gateway.nat.id
-  subnet_id      = azurerm_subnet.db_subnet.id
+  subnet_id      = azurerm_subnet.mysql_subnet.id
 }
 
 resource "azurerm_subnet" "pod_subnet" {

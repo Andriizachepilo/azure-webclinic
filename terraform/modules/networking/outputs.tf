@@ -3,7 +3,7 @@ output "pod_subnet" {
 }
 
 output "mysql_subnet" {
-  value = azurerm_subnet.db_subnet.id
+  value = azurerm_subnet.mysql_subnet.id
 }
 
 output "agent_subnet" {

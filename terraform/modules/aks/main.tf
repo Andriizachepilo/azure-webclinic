@@ -1,7 +1,7 @@
 resource "azurerm_kubernetes_cluster" "aks_cluster" {
   count = var.create_cluster ? 1 : 0
 
-  name                             = "ask-${var.resource_group_name}"
+  name                             = "aks-${var.resource_group_name}"
   location                         = var.location
   resource_group_name              = var.resource_group_name
   kubernetes_version               = var.kubernetes_version
@@ -49,9 +49,9 @@ resource "azurerm_kubernetes_cluster_node_pool" "api_gateway" {
   name                  = "public${var.location}"
   kubernetes_cluster_id = azurerm_kubernetes_cluster.aks_cluster[0].id
   vm_size               = var.node_pool_vm_size
-  node_count            = var.node_pool_node_count
   pod_subnet_id         = var.api_gateway_subnet
   vnet_subnet_id        = var.node_pool_vnet_subnet_id
+  node_count            = var.node_pool_node_count
   enable_node_public_ip = var.api_gateway_public_ip
   enable_auto_scaling   = var.node_pool_enable_auto_scaling
   max_pods              = var.node_pool_max_pods

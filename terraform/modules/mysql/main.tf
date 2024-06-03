@@ -71,7 +71,7 @@ resource "azurerm_mysql_flexible_server" "mysql" {
   name                = "mysql-server3213123"
   location            = var.resource_group_location
   resource_group_name = var.resource_group_name
-  version             = var.db_engine_version #8.0
+  version             = var.db_engine_version 
   sku_name            = var.db_server_sku
  
   administrator_login    = data.azurerm_key_vault_secret.db_login.value

@@ -18,7 +18,7 @@ api_address_prefix   = ["10.0.8.0/24"]
 db_engine_version    = "8.0.21"
 db_server_sku        = "B_Standard_B1s"
 db_iops              = 444
-db_allocated_storage = 444
+db_allocated_storage = 20
 
 charset   = "utf8"
 collation = "utf8_unicode_ci"
@@ -40,7 +40,7 @@ acr_sku                           = "Basic"
 acr_public_network_access_enabled = true
 
 #cluster
-create_cluster = true
+create_cluster = false
 
 name                             = "aks"
 kubernetes_version               = "1.29.2"
@@ -56,7 +56,7 @@ node_pool_enable_auto_scaling    = true
 node_pool_enable_host_encryption = false
 node_pool_enable_node_public_ip  = true
 node_pool_max_pods               = 110
-node_pool_max_count              = 1
+node_pool_max_count              = 4
 node_pool_min_count              = 1
 node_pool_node_count             = 1
 
