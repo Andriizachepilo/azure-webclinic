@@ -103,6 +103,10 @@ variable "dns_prefix" {
   default = null
 }
 
+variable "acr_id" {
+  type = string
+}
+
 variable "dns_prefix_private_cluster" {
   type    = string
   default = null

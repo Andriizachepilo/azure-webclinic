@@ -18,7 +18,7 @@ spec:
       - name: jenkins
         image: jenkins/jenkins:lts
         ports:
-        - containerPort: 8080
+        - containerPort: 8081
         - containerPort: 50000
         volumeMounts:
         - name: docker-socket
@@ -26,7 +26,7 @@ spec:
         - name: jenkins-home
           mountPath: /var/jenkins_home
       - name: docker
-        image: docker:19.03
+        image: docker:19.03.12
         args: ["dockerd", "-H unix:///var/run/docker.sock"]
         securityContext:
           privileged: true

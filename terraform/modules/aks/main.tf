@@ -59,3 +59,10 @@ resource "azurerm_kubernetes_cluster_node_pool" "api_gateway" {
   min_count             = var.node_pool_min_count
 
 }
+
+resource "azurerm_role_assignment" "acr_aks" {
+  principal_id                     = azurerm_kubernetes_cluster.aks_cluster[0].identity[0].principal_id
+  role_definition_name             = "AcrPull"
+  scope                            = var.acr_id
+  skip_service_principal_aad_check = true
+}

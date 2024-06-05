@@ -6,3 +6,4 @@ resource "azurerm_container_registry" "acr" {
   admin_enabled                 = var.admin_enabled
   public_network_access_enabled = var.acr_public_network_access_enabled
 }
+

@@ -108,6 +108,8 @@ module "kubernetes" {
 
   network_plugin = var.network_plugin
   network_policy = var.network_policy
+
+  acr_id = module.acr.acr
 }
 
 

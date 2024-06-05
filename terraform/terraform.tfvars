@@ -40,7 +40,7 @@ acr_sku                           = "Basic"
 acr_public_network_access_enabled = true
 
 #cluster
-create_cluster = false
+create_cluster = true
 
 name                             = "aks"
 kubernetes_version               = "1.29.2"
