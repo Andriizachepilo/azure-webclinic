@@ -3,7 +3,6 @@ pipeline {
 
     environment {
         MAVEN_HOME = tool 'Maven321'
-        registryCredential = 'docker'
     }
 
     stages {
@@ -35,16 +34,15 @@ pipeline {
         }
         stage('Build Images') {
             steps {
-                script {docker.withRegistry('', registryCredential) {
-                        sh "bash tetsscript.sh"
-                    }
-                }
+                script { 
+                       sh "bash dockerbuild.sh"
+                  }
             }
         }
         stage('Tag and Push Images') {
             steps {
                 script {
-                    sh "bash pushtest.sh"
+                    sh "bash dockerpush.sh"
                 }
             }
         }

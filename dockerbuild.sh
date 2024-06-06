@@ -2,7 +2,7 @@
 
 dir="services/"
 ports=(9090 8080 8888 8806 8761 8807 8808)
-docker="andrey342/day4"
+
 
 if [[ ! -f "tag.txt" ]]; then
     tag=1
