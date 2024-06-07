@@ -5,7 +5,7 @@ ports=(9090 8080 8888 8806 8761 8807 8808)
 
 
 if [[ ! -f "tag.txt" ]]; then
-    tag=1
+    tag=0
     echo "$tag" > "tag.txt"
 else
     tag=$(cat "tag.txt")
@@ -38,6 +38,6 @@ while IFS= read -r img; do
 done < <(docker images | awk -v tag="$tag" '$2 == tag {print $1}')
 
 if [[ ${#images[@]} -eq ${#totalfolders[@]} ]]; then 
-echo "123"
+echo "Images have been built successfully"
 fi
 

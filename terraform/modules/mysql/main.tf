@@ -1,7 +1,7 @@
 data "azurerm_client_config" "current" {}
 
 resource "azurerm_key_vault" "main" {
-  name                = "db-keyvault4231233"
+  name                = "db-keyvault4321988w73"
   location            = var.resource_group_location
   resource_group_name = var.resource_group_name
   tenant_id           = data.azurerm_client_config.current.tenant_id
@@ -68,7 +68,7 @@ data "azurerm_key_vault_secret" "db_password" {
 }
 
 resource "azurerm_mysql_flexible_server" "mysql" {
-  name                = "mysql-server3213123"
+  name                = "mysql-server3213w123"
   location            = var.resource_group_location
   resource_group_name = var.resource_group_name
   version             = var.db_engine_version 

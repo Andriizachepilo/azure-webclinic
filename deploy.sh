@@ -1,5 +1,12 @@
 #!/bin/bash
 
+az aks get-credentials --resource-group webclinic --name aks-webclinic --overwrite-existing
+node1=$(kubectl get nodes --show-labels | awk '{print $1}')
+kubectl label node $node1 type=Internal
+
+node2=$(kubectl get nodes --show-labels | awk '{print $2}')
+kubectl label node $node2 type=Public
+
 cd kubernetes
 
 kubectl apply -f config-deployment.yaml 
