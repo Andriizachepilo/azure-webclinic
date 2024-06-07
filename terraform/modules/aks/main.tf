@@ -35,7 +35,7 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     network_policy = var.network_plugin == "azure" ? var.network_plugin : var.network_policy
     service_cidr   = var.service_cidr
     dns_service_ip = var.dns_service_ip
-    load_balancer_sku = "basic"
+    # load_balancer_sku = "basic"
   }
 
   identity {

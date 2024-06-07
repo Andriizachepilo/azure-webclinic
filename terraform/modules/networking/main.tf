@@ -91,7 +91,7 @@ resource "azurerm_subnet_network_security_group_association" "gateway_sg" {
   subnet_id                 = azurerm_subnet.api_gateway_subnet.id
   network_security_group_id = var.api_gateway_security_group
 }
-#associate with public ip? or just assigning public ip for vm will be ok?
+
 
 resource "azurerm_public_ip" "nat-public-ip" {
   name                = "aks-public-ip"

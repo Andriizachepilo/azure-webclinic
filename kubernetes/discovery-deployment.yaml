@@ -20,6 +20,8 @@ spec:
         env:
         - name: CONFIG_SERVER_URL
           value: http://config-server.default.svc.cluster.local:8888
+      nodeSelector: 
+        type: Internal
 
         
 

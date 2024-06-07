@@ -22,3 +22,5 @@ spec:
           value: http://config-server.default.svc.cluster.local:8888
         - name: SPRING_PROFILES_ACTIVE
           value: docker
+      nodeSelector: 
+        type: Public

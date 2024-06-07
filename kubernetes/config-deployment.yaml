@@ -17,4 +17,6 @@ spec:
         image: andrey342/day4:config-server1
         ports:
         - containerPort: 8888
+      nodeSelector: 
+        type: Internal
 
