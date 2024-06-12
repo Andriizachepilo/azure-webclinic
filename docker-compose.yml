@@ -1,13 +1,14 @@
-  version: '3'
-  services:
-   tracing-server:
-    image: openzipkin/zipkin
-    container_name: tracing-server
-    deploy:
-      resources:
-        limits:
-          memory: 512M
-    environment:
-    - JAVA_OPTS=-XX:+UnlockExperimentalVMOptions -Djava.security.egd=file:/dev/./urandom
+version: '3.4'
+services:
+  scope:
+    image: weaveworks/weave:latest
+    network_mode: "host"
+    privileged: true
     ports:
-     - 9411:9411
+      - "4040:4040"
+    labels:
+      works.weave.role: "system"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:rw"
+    command:
+      - "--probe.docker=true"

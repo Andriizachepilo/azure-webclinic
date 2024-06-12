@@ -50,10 +50,10 @@ data "azurerm_key_vault_secret" "db_login" {
 
 resource "random_password" "mysqlpasswd" {
   length      = var.random_password_length
-  min_upper   = 1
+  min_upper   = 0
   min_lower   = 1
   min_numeric = 1
-  min_special = 1
+  min_special = 0
 }
 
 resource "azurerm_key_vault_secret" "mysqlpass" {
@@ -85,7 +85,7 @@ resource "azurerm_mysql_flexible_server" "mysql" {
 }
 
 resource "azurerm_mysql_flexible_database" "MySQL" {
-  name                = "MySQL_database"
+  name                = "database"
   resource_group_name = var.resource_group_name
   server_name         = azurerm_mysql_flexible_server.mysql.name
   charset             = var.charset

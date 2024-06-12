@@ -10,9 +10,9 @@ resource "azurerm_network_security_group" "mysql" {
     access                     = "Allow"
     protocol                   = "Tcp"
     source_port_range          = "*"
-    destination_port_range     = "3306"
-    source_address_prefix      = "10.0.9.0/24"
-    destination_address_prefix = "10.0.1.0/24"
+    destination_port_range     = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
   }
 
   security_rule {
@@ -24,7 +24,7 @@ resource "azurerm_network_security_group" "mysql" {
     source_port_range          = "*"
     destination_port_range     = "*"
     source_address_prefix      = "*"
-    destination_address_prefix = "10.0.9.0/24"
+    destination_address_prefix = "*"
   }
 }
 

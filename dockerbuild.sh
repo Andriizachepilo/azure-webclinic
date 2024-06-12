@@ -27,8 +27,9 @@ for service in "${totalfolders[@]}"; do
     docker build -t "${service}:${tag}" \
                  --build-arg JARPATH="${dir}${service}/target/${service}-3.2.4.jar" \
                  --build-arg PORT="${port}" .
-
 done
+else     
+    echo "There are no directories found"       
 fi
 
 images=()
@@ -39,5 +40,9 @@ done < <(docker images | awk -v tag="$tag" '$2 == tag {print $1}')
 
 if [[ ${#images[@]} -eq ${#totalfolders[@]} ]]; then 
 echo "Images have been built successfully"
+else 
+((tag--))
+echo "$tag" > "tag.txt"
+echo "Images have not been built"
 fi
 
