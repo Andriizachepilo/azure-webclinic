@@ -114,3 +114,23 @@ resource "azurerm_nat_gateway_public_ip_association" "nat_ip_association" {
   nat_gateway_id       = azurerm_nat_gateway.nat.id
   public_ip_address_id = azurerm_public_ip.nat-public-ip.id
 }
+
+resource "azurerm_route_table" "internet_route_table" {
+  name                          = "internet-route-table"
+  resource_group_name           = var.resource_group_name
+  location                      = var.resource_group_location
+  disable_bgp_route_propagation = var.bgp_route_propagation
+
+  route {
+    name           = "default-route"
+    address_prefix = "0.0.0.0/0"
+    next_hop_type  = "Internet"
+  }
+}
+
+resource "azurerm_subnet_route_table_association" "example_route_table_association" {
+  subnet_id      = azurerm_subnet.api_gateway_subnet.id
+  route_table_id = azurerm_route_table.internet_route_table.id
+}
+
+
