@@ -41,3 +41,7 @@ variable "api_gateway_security_group" {
 variable "api_address_prefix" {
   type = list(string)
 }
+
+variable "bgp_route_propagation" {
+ type = bool
+}
