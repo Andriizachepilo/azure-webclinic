@@ -39,19 +39,5 @@ pipeline {
                   }
             }
         }
-        stage('Tag and Push Images') {
-            steps {
-                script {
-                    sh "bash dockerpush.sh"
-                }
-            }
-        }
-        stage('Deployment') {
-            steps {
-                script {
-                    sh "bash deploy.sh"
-                }
-            }
-        }
     }
 }
