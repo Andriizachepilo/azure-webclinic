@@ -23,6 +23,35 @@ while IFS= read -r folder; do
     totalfolders+=($folder)
 done < <(find "$dir" -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort)
 
+
+#If Docker is not installed, proceed with the installation. If it is installed, proceed with building images
+docker --version > /dev/null 2>&1
+
+if [[ $? -ne 0]]; then
+  echo "Docker is not installed. Installing docker"
+
+  sudo apt-get update
+
+  sudo apt-get install docker.io -y
+
+  sudo systemctl start docker
+  
+  # Test Docker installation by running a simple container
+  sudo docker run hello > /dev/null 2>&1
+if [[ $? -eq 0 ]]; then
+
+  sudo systemctl enable docker
+  echo "docker has been installed succesfully"
+else 
+  echo "Docker installation failed. Please check and try again"
+fi
+
+else
+  echo "docker is already installed "
+
+fi
+
+
 # Check if there are any directories found
 if [[ ${#totalfolders[@]} -gt 0 ]]; then
 
@@ -52,4 +81,5 @@ else
 echo "$tag" > "tag.txt"
 echo "Images have not been built"
 fi
+
 
