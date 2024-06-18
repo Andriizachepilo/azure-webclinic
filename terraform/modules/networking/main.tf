@@ -107,4 +107,3 @@ resource "azurerm_nat_gateway_public_ip_association" "nat_ip_association" {
   public_ip_address_id = azurerm_public_ip.nat-public-ip.id
 }
 
-
