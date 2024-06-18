@@ -31,21 +31,21 @@ resource "azurerm_subnet_nat_gateway_association" "subnet_mysql_nat_association"
   subnet_id      = azurerm_subnet.mysql_subnet.id
 }
 
-resource "azurerm_subnet" "pod_subnet" {
-  name                 = "pod-subnet-${var.resource_group_location}"
+resource "azurerm_subnet" "node_subnet" {
+  name                 = "node-subnet-${var.resource_group_location}"
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.webclinic.name
-  address_prefixes     = var.pod_address_prefix
+  address_prefixes     = var.node_address_prefix
 }
 
-resource "azurerm_subnet_network_security_group_association" "pod_sg" {
-  subnet_id                 = azurerm_subnet.pod_subnet.id
-  network_security_group_id = var.pod_security_group
+resource "azurerm_subnet_network_security_group_association" "node_sg" {
+  subnet_id                 = azurerm_subnet.node_subnet.id
+  network_security_group_id = var.node_security_group
 }
 
-resource "azurerm_subnet_nat_gateway_association" "subnet_pod_nat_association" {
+resource "azurerm_subnet_nat_gateway_association" "subnet_node_nat_association" {
   nat_gateway_id = azurerm_nat_gateway.nat.id
-  subnet_id      = azurerm_subnet.pod_subnet.id
+  subnet_id      = azurerm_subnet.node_subnet.id
 }
 
 
@@ -67,7 +67,7 @@ resource "azurerm_subnet" "agent_pool_subnet" {
 
 resource "azurerm_subnet_network_security_group_association" "agent_sg" {
   subnet_id                 = azurerm_subnet.agent_pool_subnet.id
-  network_security_group_id = var.pod_security_group
+  network_security_group_id = var.agent_security_group
 }
 
 
@@ -77,14 +77,6 @@ resource "azurerm_subnet" "api_gateway_subnet" {
   virtual_network_name = azurerm_virtual_network.webclinic.name
   address_prefixes     = var.api_address_prefix
 
-    delegation {
-    name = "aks-delegation"
-
-    service_delegation {
-      name    = "Microsoft.ContainerService/managedClusters"
-      actions = ["Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action"]
-    }
-  }
 }
 
 resource "azurerm_subnet_network_security_group_association" "gateway_sg" {
@@ -114,3 +106,5 @@ resource "azurerm_nat_gateway_public_ip_association" "nat_ip_association" {
   nat_gateway_id       = azurerm_nat_gateway.nat.id
   public_ip_address_id = azurerm_public_ip.nat-public-ip.id
 }
+
+

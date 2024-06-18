@@ -1,5 +1,5 @@
-output "pod_subnet" {
-  value = azurerm_subnet.pod_subnet.id
+output "node_subnet" {
+  value = azurerm_subnet.node_subnet.id
 }
 
 output "mysql_subnet" {

@@ -84,6 +84,13 @@ resource "azurerm_mysql_flexible_server" "mysql" {
   }
 }
 
+# resource "azurerm_mysql_flexible_server_configuration" "ssl_enforcement" {
+#   name                = "ssl-enforcement"
+#   resource_group_name = var.resource_group_name
+#   server_name         = azurerm_mysql_flexible_server.mysql.name
+#   value               = "Disabled"
+# }
+
 resource "azurerm_mysql_flexible_database" "MySQL" {
   name                = "database"
   resource_group_name = var.resource_group_name

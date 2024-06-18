@@ -15,7 +15,7 @@ variable "address_space" {
 }
 
 
-variable "aks_address_prefix" {
+variable "node_address_prefix" {
   type = list(string)
 }
 
@@ -221,3 +221,4 @@ variable "agent_address_prefix" {
 variable "api_address_prefix" {
   type = list(string)
 }
+

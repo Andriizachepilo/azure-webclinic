@@ -10,7 +10,7 @@ resource "azurerm_network_security_group" "mysql" {
     access                     = "Allow"
     protocol                   = "Tcp"
     source_port_range          = "*"
-    destination_port_range     = "*"
+    destination_port_range     = "3306"
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }

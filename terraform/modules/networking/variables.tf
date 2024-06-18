@@ -2,7 +2,7 @@ variable "address_space" {
   type = list(string)
 }
 
-variable "pod_address_prefix" {
+variable "node_address_prefix" {
   type = list(string)
 }
 
@@ -10,11 +10,15 @@ variable "mysql_address_prefix" {
   type = list(string)
 }
 
-variable "pod_security_group" {
+variable "node_security_group" {
   type = string
 }
 
 variable "db_security_group" {
+  type = string
+}
+
+variable "agent_security_group" {
   type = string
 }
 
@@ -41,3 +45,4 @@ variable "api_gateway_security_group" {
 variable "api_address_prefix" {
   type = list(string)
 }
+

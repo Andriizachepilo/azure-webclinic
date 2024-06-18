@@ -7,9 +7,7 @@ vn_name       = "aks-netwroking"
 address_space = ["10.0.0.0/20"]
 
 mysql_address_prefix = ["10.0.1.0/24"]
-
-aks_address_prefix = ["10.0.9.0/24"]
-
+node_address_prefix  = ["10.0.9.0/24"]
 agent_address_prefix = ["10.0.5.0/24"]
 api_address_prefix   = ["10.0.8.0/24"]
 
@@ -60,8 +58,8 @@ node_pool_max_count              = 4
 node_pool_min_count              = 1
 node_pool_node_count             = 1
 
-network_plugin = "azure"
-network_policy = ""
-service_cidr   = "10.0.2.0/24"
-dns_service_ip = "10.0.2.10"
+network_plugin        = "azure"
+network_policy        = ""
+service_cidr          = "10.0.2.0/24"
+dns_service_ip        = "10.0.2.10"
 api_gateway_public_ip = true

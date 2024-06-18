@@ -14,13 +14,14 @@ module "netwroking" {
   address_space = var.address_space
 
   api_address_prefix   = var.api_address_prefix
-  pod_address_prefix   = var.aks_address_prefix
+  node_address_prefix  = var.node_address_prefix
   agent_address_prefix = var.agent_address_prefix
   mysql_address_prefix = var.mysql_address_prefix
 
   db_security_group          = module.security-group.mysql
-  pod_security_group         = module.security-group.node
+  node_security_group        = module.security-group.node
   api_gateway_security_group = module.security-group.api_gateway
+  agent_security_group       = module.security-group.node
 
   create_cluster = var.create_cluster
 }
@@ -92,7 +93,7 @@ module "kubernetes" {
 
   dns_service_ip                   = var.dns_service_ip
   service_cidr                     = var.service_cidr
-  node_pool_vnet_subnet_id         = module.netwroking.pod_subnet
+  node_pool_vnet_subnet_id         = module.netwroking.node_subnet
   node_pool_vm_size                = var.node_pool_vm_size
   node_pool_pod_subnet_id          = module.netwroking.agent_subnet
   node_pool_enable_auto_scaling    = var.node_pool_enable_auto_scaling
