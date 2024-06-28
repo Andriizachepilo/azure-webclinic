@@ -3,6 +3,8 @@ pipeline {
 
     environment {
         MAVEN_HOME = tool 'Maven321'
+        registryURL = "acrukwestuniq.azurecr.io"
+        registryCredentials = "acrcred"
     }
 
     stages {
@@ -19,7 +21,7 @@ pipeline {
             steps {
                 dir('services') {
                     script {
-                        sh "${MAVEN_HOME}/bin/mvn test" 
+                        sh "${MAVEN_HOME}/bin/mvn test"
                     }
                 }
             }
@@ -34,9 +36,18 @@ pipeline {
         }
         stage('Build Images') {
             steps {
-                script { 
-                       sh "bash dockerbuild.sh"
-                  }
+                script {
+                    sh "bash dockerbuild.sh"
+                }
+            }
+        }
+        stage('Push Images') {
+            steps {
+                script {
+                    docker.withRegistry("http://${registryURL}", registryCredentials) {
+                        sh "bash dockerpush.sh"
+                    }
+                }
             }
         }
     }

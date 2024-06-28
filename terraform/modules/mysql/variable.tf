@@ -20,10 +20,7 @@ variable "db_server_sku" {
 }
 
 
-# variable "db_zone" {
-#   description = "The availability zone where the MySQL server will be created."
-#   type        = string
-# }
+
 
 variable "db_delegated_subnet_id" {
   description = "The ID of the subnet that will be delegated to the MySQL server."
