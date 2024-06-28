@@ -1,24 +1,24 @@
 #!/bin/bash
 
-container=$(az acr list --query "[].name" -o tsv)
-tag=$(<tag.txt)
-imagescounter=0
+ACR_URL="acrukwestuniq.azurecr.io"
+TAG=$(<tag.txt)
+IMAGES_COUNTER=0
 
-images=$(docker images | awk -v tag="$tag" '$2 == tag {print $1}')
+images=$(docker images | awk -v tag="$TAG" '$2 == tag {print $1}' | sort)
 
 for count in $images; do
-  ((imagescounter++))
+  ((IMAGES_COUNTER++))
 done
 
-az acr login --name $container
 
-if [[ $imagescounter -gt 0 ]]; then     
+if [[ $IMAGES_COUNTER -gt 0 ]]; then       
 
     for image in $images; do 
-        docker tag "${image}:${tag}" "${container}:${image}${tag}"
-        docker push "${container}:${image}${tag}"
+        docker tag "${image}:${TAG}" "${ACR_URL}/webclinic:${image}${TAG}"
+        docker push "${ACR_URL}/webclinic:${image}${TAG}"
     done
                                         
 else
-    echo "There are no images with tag $tag"
+    echo "There are no images with tag $TAG"  
+    exit 1
 fi
