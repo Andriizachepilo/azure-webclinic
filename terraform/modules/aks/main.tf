@@ -18,7 +18,7 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     content {
       name                   = "intrnl${var.location}"
       vm_size                = var.node_pool_vm_size
-      vnet_subnet_id         = var.node_pool_vnet_subnet_id #######
+      vnet_subnet_id         = var.node_pool_vnet_subnet_id 
       pod_subnet_id          = var.node_pool_pod_subnet_id
       enable_auto_scaling    = var.node_pool_enable_auto_scaling
       enable_host_encryption = var.node_pool_enable_host_encryption
@@ -50,7 +50,7 @@ resource "azurerm_kubernetes_cluster_node_pool" "api_gateway" {
   kubernetes_cluster_id = azurerm_kubernetes_cluster.aks_cluster[0].id
   vm_size               = var.node_pool_vm_size
   pod_subnet_id         = var.node_pool_pod_subnet_id
-  vnet_subnet_id        = var.api_gateway_subnet ########
+  vnet_subnet_id        = var.api_gateway_subnet 
   node_count            = var.node_pool_node_count
   enable_node_public_ip = var.api_gateway_public_ip
   enable_auto_scaling   = var.node_pool_enable_auto_scaling
@@ -63,7 +63,7 @@ resource "azurerm_kubernetes_cluster_node_pool" "api_gateway" {
 resource "azurerm_role_assignment" "acr_aks" {
   count                            = var.create_cluster ? 1 : 0
 
-  principal_id                     = azurerm_kubernetes_cluster.aks_cluster[0].identity[0].principal_id
+  principal_id                     = azurerm_kubernetes_cluster.aks_cluster[0].kubelet_identity[0].object_id
   role_definition_name             = "AcrPull"
   scope                            = var.acr_id
   skip_service_principal_aad_check = true
