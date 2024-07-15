@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: customer-service
-        image: andrey342/day4:customers-service1
+        image: acrukwestuniq.azurecr.io/webclinic:customers-service1
         ports:
         - containerPort: 8806
         env:

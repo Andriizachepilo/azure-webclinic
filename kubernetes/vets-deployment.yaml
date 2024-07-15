@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: vets-service
-        image: andrey342/day4:vets-service1
+        image: acrukwestuniq.azurecr.io/webclinic:vets-service1
         ports:
         - containerPort: 8807
         env:

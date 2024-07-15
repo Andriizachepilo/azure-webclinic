@@ -16,15 +16,22 @@ spec:
     spec:
       containers:
       - name: jenkins
-        image: jenkins/jenkins:lts
+        image: andrey342/day4:dockerjenkins
         ports:
         - containerPort: 8080
         - containerPort: 50000
         volumeMounts:
         - name: jenkins-home
           mountPath: /var/jenkins_home
+        - name: docker-socket
+          mountPath: /var/run/docker.sock
+        securityContext:
+          privileged: true
       volumes:
       - name: jenkins-home
         emptyDir: {}
+      - name: docker-socket
+        hostPath:
+          path: /var/run/docker.sock
       nodeSelector: 
         type: Public

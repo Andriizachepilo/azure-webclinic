@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: discovery-server
-        image: andrey342/day4:discovery-server1 
+        image: acrukwestuniq.azurecr.io/webclinic:discovery-server1
         ports:
         - containerPort: 8761
         env:
@@ -23,6 +23,5 @@ spec:
       nodeSelector: 
         type: Internal
 
-        
 
 

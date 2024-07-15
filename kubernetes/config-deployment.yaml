@@ -14,9 +14,8 @@ spec:
     spec:
       containers:
       - name: config-server
-        image: andrey342/day4:config-server1
+        image: acrukwestuniq.azurecr.io/webclinic:config-server1
         ports:
         - containerPort: 8888
       nodeSelector: 
         type: Internal
-

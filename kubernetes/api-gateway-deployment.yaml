@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: api-gateway
+  name: config-server
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: api-gateway
+      app: config-server
   template:
     metadata:
       labels:
-        app: api-gateway
+        app: config-server
     spec:
       containers:
       - name: api-gateway
-        image: andrey342/day4:api-gateway1
+        image: acrukwestuniq.azurecr.io/webclinic:api-gateway1
         ports:
         - containerPort: 8080
         env:
