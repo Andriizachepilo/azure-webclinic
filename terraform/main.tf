@@ -31,6 +31,8 @@ module "security-group" {
 
   resource_group_location = module.resource-group.location
   resource_group_name     = module.resource-group.name
+
+  my_ip_address = var.my_ip_address
 }
 
 module "acr" {

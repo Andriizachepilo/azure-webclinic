@@ -222,3 +222,6 @@ variable "api_address_prefix" {
   type = list(string)
 }
 
+variable "my_ip_address" {
+  type = list(string)
+}

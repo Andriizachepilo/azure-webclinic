@@ -2,6 +2,9 @@
 resource_group_name     = "webclinic"
 resource_group_location = "ukwest"
 
+#your IP address
+my_ip_address = [ "" ]
+
 #networking
 vn_name       = "aks-netwroking"
 address_space = ["10.0.0.0/20"]
