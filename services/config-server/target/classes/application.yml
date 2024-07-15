@@ -4,7 +4,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/Andriizachepilo/azure-webclinic/tree/main/kubernetes/config
+          uri: https://github.com/Andriizachepilo/azure-webclinic/tree/main/config
           default-label: main
 
         native:
