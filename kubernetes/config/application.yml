@@ -81,7 +81,7 @@ spring:
     activate:
       on-profile: mysql
   datasource:
-    url: ${DATASOURCE_URL}
+    url: ${DATASOURCE_URL} #example : jdbc:mysql://localhost:1234/petclinic?useSSL=false
     username: ${DATASOURCE_URL_USERNAME}
     password: ${DATASOURCE_URL_PASSWORD}
   sql:
