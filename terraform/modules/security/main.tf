@@ -41,9 +41,9 @@ resource "azurerm_network_security_group" "node" {
     direction                  = "Inbound"
     access                     = "Allow"
     protocol                   = "Tcp"
-    source_port_range          = "*" #if its a private node - accessible for my node where is api gateway located, ingress on port 80 and all egress only from api gateway node and database?
+    source_port_range          = "*" 
     destination_port_range     = "*"
-    source_address_prefix      = "*" #will db send an ingress while responding ?
+    source_address_prefix      = "*" 
     destination_address_prefix = "*"
 }
 
