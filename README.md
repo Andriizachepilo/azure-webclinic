@@ -174,3 +174,12 @@ The liveness and readiness probes for the services were configured based on insi
 
 ![Weave Scope1](screenshots/weave1.png)
 ![Weave Scope2](screenshots/weave2.png)
+
+## Additional Resources 📚
+
+- [Azure Documentation](https://docs.microsoft.com/azure/)
+- [Terraform Documentation](https://www.terraform.io/docs/)
+- [Kubernetes Documentation](https://kubernetes.io/docs/)
+- [Docker Documentation](https://docs.docker.com/)
+
+Happy coding! 🚀
