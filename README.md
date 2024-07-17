@@ -1,15 +1,15 @@
-# azure-webclinic# Azure WebClinic Project 🏥
+# Azure WebClinic Project 🏥
 
 Welcome to the Azure WebClinic project! This project rebuilds the microservices architecture of the Spring PetClinic application to deploy it using Kubernetes, both with and without Docker. You can find the original microservices [here](link-to-original-microservices).
 
 <p align="left">
-  <img src="screenshots/terraform.svg" alt="terraform1" width="50" height="50"/>
+  <img src="screenshots/terraform1.svg" alt="terraform1" width="50" height="50"/>
   <img src="screenshots/azure.svg" alt="azure" width="50" height="50"/>
   <img src="screenshots/kubernetes.svg" alt="kubernetes" width="50" height="50"/>
   <img src="screenshots/docker.svg" alt="docker" width="50" height="50"/>
   <img src="screenshots/mysql.svg" alt="mysql" width="50" height="50"/>
   <img src="screenshots/jenkins.svg" alt="jenkins" width="50" height="50"/>
-  <img src="screenshots/shell.svg" alt="bash1" width="50" height="50"/>
+  <img src="screenshots/bash1.svg" alt="bash1" width="50" height="50"/>
   <img src="screenshots/weavescope.svg" alt="weavescope" width="50" height="50"/>
 </p>
 
