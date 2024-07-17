@@ -60,6 +60,7 @@ resource "azurerm_kubernetes_cluster_node_pool" "api_gateway" {
 
 }
 
+#role to pull images from our registry
 resource "azurerm_role_assignment" "acr_aks" {
   count                            = var.create_cluster ? 1 : 0
 
