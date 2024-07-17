@@ -1,6 +1,6 @@
 # Azure WebClinic Project 🏥
 
-Welcome to the Azure WebClinic project! This project rebuilds the microservices architecture of the Spring PetClinic application to deploy it using Kubernetes, both with and without Docker. You can find the original microservices [here](link-to-original-microservices).
+Welcome to the Azure WebClinic project! This project rebuilds the microservices architecture of the Spring PetClinic application, which was slightly modified to enable deployment using Kubernetes, both with and without Docker. You can find the original microservices [here](link-to-original-microservices).
 
 ## Technologies Used 🛠️
 <p align="left">
