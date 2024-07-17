@@ -159,6 +159,9 @@ Please configure your Jenkins pipeline accordingly, and ensure all credentials a
 
 ### Jenkins Alternative: Shell Script with Dialect Interface 🐚
 As an alternative to Jenkins, you can use the provided shell script which uses Dialect as a user interface. This script checks all possible scenarios, such as installed dependencies, your operating system, and more. All you need to do is run the script and follow the prompts via the user interface, such as entering your registry URL, path to your services, and custom ports if they were changed in the applications.
+   ```sh
+   bash marmalade.sh
+   ```
 
 
 ### Weave Scope Setup 🔍
