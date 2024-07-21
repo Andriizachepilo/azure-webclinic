@@ -162,6 +162,9 @@ As an alternative to Jenkins, you can use the provided shell script which uses D
    ```sh
    bash marmalade.sh
    ```
+![dialect1](screenshots/dialect1.png)
+![dialect2](screenshots/dialect2.png)
+
 
 
 ### Weave Scope Setup 🔍

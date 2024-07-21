@@ -310,8 +310,12 @@ else
 fi
 
 # Ask for custom ports for applications
-dialog --backtitle "Docker CI/CD Script" --inputbox "Enter custom ports for applications (optional, separated by space, In aplhabetical order from Admin service to visits service). If no ports specified, default ports will be applied:" 8 60 2> /tmp/custom_ports.txt
+dialog --backtitle "Docker CI/CD Script" \
+       --inputbox "Enter custom ports for applications (optional, separated by spaces). Default ports will be used if none are specified:" \
+       10 60 2> /tmp/custom_ports.txt
+
 CUSTOM_PORTS=$(< /tmp/custom_ports.txt)
+
 
 
 # Function to build the application
